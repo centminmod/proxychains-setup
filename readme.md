@@ -202,14 +202,14 @@ tcp_connect_time_out 8000
 socks4  127.0.0.1 9050
 ```
 
-Uncomment `dynamic_chain` and comment out `strict_chain`
+Uncomment `round_robin_chain` and comment out `strict_chain`
 
 ```
 # The option below identifies how the ProxyList is treated.
 # only one option should be uncommented at time,
 # otherwise the last appearing option will be accepted
 #
-dynamic_chain
+#dynamic_chain
 #
 # Dynamic - Each connection will be done via chained proxies
 # all proxies chained in the order as they appear in the list
@@ -224,7 +224,7 @@ dynamic_chain
 # all proxies must be online to play in chain
 # otherwise EINTR is returned to the app
 #
-#round_robin_chain
+round_robin_chain
 ```
 
 Add HTTP forward proxies under the `[ProxyList]` section where values separated by blank or tabs.
