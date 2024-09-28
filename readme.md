@@ -2,6 +2,7 @@ Install proxychains ng (new generation) https://github.com/rofl0r/proxychains-ng
 
 * [Install proxychains ng](#install-proxychains-ng)
 * [Use proxychains4](#use-proxychains4)
+* [Direct Caddy HTTP Forward Proxy Test](#direct-caddy-http-forward-proxy-test)
 
 # Install proxychains ng
 
@@ -419,6 +420,82 @@ tail -1 /var/log/caddy/forward_proxy_access_8081.log | jq -r
 }
 ```
 
+```
+proxychains4 svn list https://core.svn.wordpress.org/
+[proxychains] config file found: /etc/proxychains/proxychains.conf
+[proxychains] preloading /usr/lib/libproxychains4.so
+[proxychains] DLL init: proxychains-ng 4.17-git-3-g1760c93
+[proxychains] Round Robin chain  ...  192.168.122.60:8081  ...  core.svn.wordpress.org:443  ...  OK
+branches/
+tags/
+trunk/
+```
+```
+proxychains4 svn info https://core.svn.wordpress.org/
+[proxychains] config file found: /etc/proxychains/proxychains.conf
+[proxychains] preloading /usr/lib/libproxychains4.so
+[proxychains] DLL init: proxychains-ng 4.17-git-3-g1760c93
+[proxychains] Round Robin chain  ...  192.168.122.60:8081  ...  core.svn.wordpress.org:443  ...  OK
+Path: .
+URL: https://core.svn.wordpress.org
+Relative URL: ^/
+Repository Root: https://core.svn.wordpress.org
+Repository UUID: 1a063a9b-81f0-0310-95a4-ce76da25c4cd
+Revision: 58505
+Node Kind: directory
+Last Changed Author: hellofromTonya
+Last Changed Rev: 58505
+Last Changed Date: 2024-09-27 20:00:16 +0000 (Fri, 27 Sep 2024)
+```
+```
+proxychains4 svn log https://core.svn.wordpress.org/ -l 1
+[proxychains] config file found: /etc/proxychains/proxychains.conf
+[proxychains] preloading /usr/lib/libproxychains4.so
+[proxychains] DLL init: proxychains-ng 4.17-git-3-g1760c93
+[proxychains] Round Robin chain  ...  192.168.122.60:8081  ...  core.svn.wordpress.org:443  ...  OK
+------------------------------------------------------------------------
+r58505 | hellofromTonya | 2024-09-27 20:00:16 +0000 (Fri, 27 Sep 2024) | 18 lines
+
+Code Modernization: Fix trigger_error() with E_USER_ERROR deprecation in TestXMLParser::parse().
+
+PHP 8.4 deprecates the use of `trigger_errror()` with `E_USER_ERROR` as the error level, as there are a number of gotchas to this way of creating a `Fatal Error` (`finally` blocks not executing, destructors not executing).
+The recommended replacements are either to use exceptions or to do a hard `exit`.
+
+As this is a test-only class, do not have to take BC-breaks into account.
+
+Also, as this is a test helper, throwing a exception is the most appropriate solution.
+
+Reference:
+* https://wiki.php.net/rfc/deprecations_php_8_4#deprecate_passing_e_user_error_to_trigger_error
+
+Follow-up to [25002].
+
+Props jrf.
+See #62061.
+Built from https://develop.svn.wordpress.org/trunk@59109
+
+------------------------------------------------------------------------
+```
+```
+proxychains4 svn list --xml --depth=infinity https://core.svn.wordpress.org/trunk/ | grep "<size>"
+[proxychains] config file found: /etc/proxychains/proxychains.conf
+[proxychains] preloading /usr/lib/libproxychains4.so
+[proxychains] DLL init: proxychains-ng 4.17-git-3-g1760c93
+[proxychains] Round Robin chain  ...  192.168.122.60:8081  ...  core.svn.wordpress.org:443  ...  OK
+<size>405</size>
+<size>19915</size>
+<size>7409</size>
+<size>7387</size>
+<size>15530</size>
+<size>5146</size>
+<size>2834</size>
+<size>406</size>
+<size>9075</size>
+<size>2070</size>
+```
+
+# Direct Caddy HTTP Forward Proxy Test
+
 Direct `192.168.122.60` Caddy HTTP Forward proxy test
 
 ```
@@ -527,3 +604,4 @@ x-nc: HIT ord 2
 < 
 * Connection #0 to host 192.168.122.60 left intact
 ```
+
