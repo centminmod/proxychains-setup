@@ -202,22 +202,29 @@ tcp_connect_time_out 8000
 socks4  127.0.0.1 9050
 ```
 
-Uncomment `round_robin_chain`
+Uncomment `dynamic_chain` and comment out `strict_chain`
 
 ```
-round_robin_chain
+# The option below identifies how the ProxyList is treated.
+# only one option should be uncommented at time,
+# otherwise the last appearing option will be accepted
 #
-# Round Robin - Each connection will be done via chained proxies
-# of chain_len length
+dynamic_chain
+#
+# Dynamic - Each connection will be done via chained proxies
 # all proxies chained in the order as they appear in the list
 # at least one proxy must be online to play in chain
-# (dead proxies are skipped).
-# the start of the current proxy chain is the proxy after the last
-# proxy in the previously invoked proxy chain.
-# if the end of the proxy chain is reached while looking for proxies
-# start at the beginning again.
+# (dead proxies are skipped)
 # otherwise EINTR is returned to the app
-# These semantics are not guaranteed in a multithreaded environment.
+#
+#strict_chain
+#
+# Strict - Each connection will be done via chained proxies
+# all proxies chained in the order as they appear in the list
+# all proxies must be online to play in chain
+# otherwise EINTR is returned to the app
+#
+#round_robin_chain
 ```
 
 Add HTTP forward proxies under the `[ProxyList]` section where values separated by blank or tabs.
