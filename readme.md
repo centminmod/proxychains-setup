@@ -1,4 +1,4 @@
-Install proxychains ng (new generation) https://github.com/rofl0r/proxychains-ng. You can use it with self-hosted HTTP forward proxies via Squid, Tinyproxy or even Caddy server with HTTP forward proxy module built in.
+Install proxychains ng (new generation) https://github.com/rofl0r/proxychains-ng. You can use it with self-hosted HTTP forward proxies via Squid, Tinyproxy or even Caddy server with HTTP forward proxy module built in or via commercially available proxy services like [WebShare.io](https://centminmod.com/webshare) (affiliate link).
 
 * [Install proxychains ng](#install-proxychains-ng)
 * [Use proxychains4](#use-proxychains4)
