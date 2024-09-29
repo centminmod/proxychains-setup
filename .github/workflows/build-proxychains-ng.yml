@@ -29,6 +29,21 @@ jobs:
           /tmp/build-proxychains-ng.sh
         "
 
+    - name: Display proxychains-ng qpl info
+      run: |
+        echo "Displaying proxychains-ng qpl info:"
+        cat ${{ github.workspace }}/proxychains-ng-qpl-output.log
+
+    - name: Display proxychains-ng changelog info
+      run: |
+        echo "Displaying proxychains-ng changelog info:"
+        cat ${{ github.workspace }}/proxychains-ng-changelog-output.log
+
+    - name: Display proxychains-ng yum info
+      run: |
+        echo "Displaying proxychains-ng yum info:"
+        cat ${{ github.workspace }}/proxychains-ng-yuminfo-output.log
+
     - name: Inspect RPM contents
       run: |
         ls -lah rpms/
