@@ -95,13 +95,17 @@ cp %{buildroot}%{_sysconfdir}/proxychains/proxychains.conf %{buildroot}%{_syscon
 %{_bindir}/proxychains4-daemon
 %{_libdir}/libproxychains4.so*
 
-%changelog
-* $(date +"%a %b %d %Y") George Liu <centminmod.com> - %{version}-1
-- Initial build for %{name} %{version}
 EOF
 
 # Replace %{version} with actual version in spec file
 sed -i "s/%{version}/${PROXYCHAINS_NG_VER}/g" ~/rpmbuild/SPECS/proxychains-ng.spec
+
+# Add new changelog entry
+sed -i '/^%changelog/a \* '"$(date +"%a %b %d %Y")"' George Liu <centminmod.com> - '"${PROXYCHAINS_NG_VER}"'-1\n- Build for EL8/EL9 OSes\n' ~/rpmbuild/SPECS/proxychains-ng.spec
+
+echo
+cat ~/rpmbuild/SPECS/csync2.spec
+echo
 
 # Build the RPM using rpmbuild
 rpmbuild -ba ~/rpmbuild/SPECS/proxychains-ng.spec --define "dist .${DISTTAG}"
