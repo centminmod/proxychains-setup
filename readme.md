@@ -437,6 +437,42 @@ branches/
 tags/
 trunk/
 ```
+
+With `dynamic_chain`
+
+```
+proxychains4 svn list https://plugins.svn.wordpress.org/ > wp-plugin-svn-list.txt
+[proxychains] config file found: /etc/proxychains/proxychains.conf
+[proxychains] preloading /usr/lib/libproxychains4.so
+[proxychains] DLL init: proxychains-ng 4.17-git-3-g1760c93
+[proxychains] Dynamic chain  ...  192.168.122.60:8081  ...  plugins.svn.wordpress.org:443  ...  OK
+```
+
+102,666 Wordpress plugins
+
+```
+wc -l < wp-plugin-svn-list.txt 
+102666
+```
+
+```
+head -n5 wp-plugin-svn-list.txt 
+0-delay-late-caching-for-feeds/
+0-errors/
+001-prime-strategy-translate-accelerator/
+002-ps-custom-post-type/
+011-ps-custom-taxonomy/
+```
+
+```
+tail -5 wp-plugin-svn-list.txt 
+日志保护/
+海阔淘宝相关宝贝插件/
+社交登录/
+腾讯微博一键登录/
+豆瓣秀-for-wordpress/
+```
+
 ```
 proxychains4 svn info https://core.svn.wordpress.org/
 [proxychains] config file found: /etc/proxychains/proxychains.conf
