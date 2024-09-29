@@ -85,8 +85,6 @@ cp %{buildroot}%{_sysconfdir}/proxychains/proxychains.conf %{buildroot}%{_syscon
 cp %{buildroot}%{_sysconfdir}/proxychains/proxychains.conf %{buildroot}%{_sysconfdir}/proxychains/proxychains3.conf
 
 %files
-%license COPYING
-%doc README.md
 %config(noreplace) %{_sysconfdir}/proxychains/proxychains.conf
 %config(noreplace) %{_sysconfdir}/proxychains/proxychains1.conf
 %config(noreplace) %{_sysconfdir}/proxychains/proxychains2.conf
