@@ -117,7 +117,7 @@ yum -y install ~/rpmbuild/RPMS/x86_64/proxychains-ng-${PROXYCHAINS_NG_VER}-1.${D
 echo
 rpm -ql proxychains-ng | tee /workspace/proxychains-ng-qpl-output.log
 echo
-rpm -q --changelog proxychains-ng | tee /workspace/proxychains-ng-changelog-output.log
+rpm -qa --changelog proxychains-ng | tee /workspace/proxychains-ng-changelog-output.log
 echo
 yum -q info proxychains-ng | tee /workspace/proxychains-ng-yuminfo-output.log
 
