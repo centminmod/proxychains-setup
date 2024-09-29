@@ -23,10 +23,10 @@ jobs:
         docker pull ${{ matrix.os }}
         docker run --rm -v ${{ github.workspace }}:/workspace -w /workspace ${{ matrix.os }} /bin/bash -c "
           # Copy build script into the container
-          cp /workspace/build-proxychains-ng-rpm.sh /tmp &&
-          chmod +x /tmp/build-proxychains-ng-rpm.sh &&
+          cp /workspace/build-proxychains-ng.sh /tmp &&
+          chmod +x /tmp/build-proxychains-ng.sh &&
           # Run build script
-          /tmp/build-proxychains-ng-rpm.sh
+          /tmp/build-proxychains-ng.sh
         "
 
     - name: Inspect RPM contents
