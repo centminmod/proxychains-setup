@@ -104,7 +104,7 @@ sed -i "s/%{version}/${PROXYCHAINS_NG_VER}/g" ~/rpmbuild/SPECS/proxychains-ng.sp
 sed -i '/^%changelog/a \* '"$(date +"%a %b %d %Y")"' George Liu <centminmod.com> - '"${PROXYCHAINS_NG_VER}"'-1\n- Build for EL8/EL9 OSes\n' ~/rpmbuild/SPECS/proxychains-ng.spec
 
 echo
-cat ~/rpmbuild/SPECS/csync2.spec
+cat ~/rpmbuild/SPECS/proxychains-ng.spec
 echo
 
 # Build the RPM using rpmbuild
