@@ -83,12 +83,38 @@ install -D -m 644 src/proxychains.conf %{buildroot}%{_sysconfdir}/proxychains/pr
 cp %{buildroot}%{_sysconfdir}/proxychains/proxychains.conf %{buildroot}%{_sysconfdir}/proxychains/proxychains1.conf
 cp %{buildroot}%{_sysconfdir}/proxychains/proxychains.conf %{buildroot}%{_sysconfdir}/proxychains/proxychains2.conf
 cp %{buildroot}%{_sysconfdir}/proxychains/proxychains.conf %{buildroot}%{_sysconfdir}/proxychains/proxychains3.conf
+cp %{buildroot}%{_sysconfdir}/proxychains/proxychains.conf %{buildroot}%{_sysconfdir}/proxychains/proxychains4.conf
+cp %{buildroot}%{_sysconfdir}/proxychains/proxychains.conf %{buildroot}%{_sysconfdir}/proxychains/proxychains5.conf
+cp %{buildroot}%{_sysconfdir}/proxychains/proxychains.conf %{buildroot}%{_sysconfdir}/proxychains/proxychains6.conf
+cp %{buildroot}%{_sysconfdir}/proxychains/proxychains.conf %{buildroot}%{_sysconfdir}/proxychains/proxychains7.conf
+cp %{buildroot}%{_sysconfdir}/proxychains/proxychains.conf %{buildroot}%{_sysconfdir}/proxychains/proxychains8.conf
+cp %{buildroot}%{_sysconfdir}/proxychains/proxychains.conf %{buildroot}%{_sysconfdir}/proxychains/proxychains9.conf
+cp %{buildroot}%{_sysconfdir}/proxychains/proxychains.conf %{buildroot}%{_sysconfdir}/proxychains/proxychains10.conf
+cp %{buildroot}%{_sysconfdir}/proxychains/proxychains.conf %{buildroot}%{_sysconfdir}/proxychains/proxychains11.conf
+cp %{buildroot}%{_sysconfdir}/proxychains/proxychains.conf %{buildroot}%{_sysconfdir}/proxychains/proxychains12.conf
+cp %{buildroot}%{_sysconfdir}/proxychains/proxychains.conf %{buildroot}%{_sysconfdir}/proxychains/proxychains13.conf
+cp %{buildroot}%{_sysconfdir}/proxychains/proxychains.conf %{buildroot}%{_sysconfdir}/proxychains/proxychains14.conf
+cp %{buildroot}%{_sysconfdir}/proxychains/proxychains.conf %{buildroot}%{_sysconfdir}/proxychains/proxychains15.conf
+cp %{buildroot}%{_sysconfdir}/proxychains/proxychains.conf %{buildroot}%{_sysconfdir}/proxychains/proxychains16.conf
 
 %files
 %config(noreplace) %{_sysconfdir}/proxychains/proxychains.conf
 %config(noreplace) %{_sysconfdir}/proxychains/proxychains1.conf
 %config(noreplace) %{_sysconfdir}/proxychains/proxychains2.conf
 %config(noreplace) %{_sysconfdir}/proxychains/proxychains3.conf
+%config(noreplace) %{_sysconfdir}/proxychains/proxychains4.conf
+%config(noreplace) %{_sysconfdir}/proxychains/proxychains5.conf
+%config(noreplace) %{_sysconfdir}/proxychains/proxychains6.conf
+%config(noreplace) %{_sysconfdir}/proxychains/proxychains7.conf
+%config(noreplace) %{_sysconfdir}/proxychains/proxychains8.conf
+%config(noreplace) %{_sysconfdir}/proxychains/proxychains9.conf
+%config(noreplace) %{_sysconfdir}/proxychains/proxychains10.conf
+%config(noreplace) %{_sysconfdir}/proxychains/proxychains11.conf
+%config(noreplace) %{_sysconfdir}/proxychains/proxychains12.conf
+%config(noreplace) %{_sysconfdir}/proxychains/proxychains13.conf
+%config(noreplace) %{_sysconfdir}/proxychains/proxychains14.conf
+%config(noreplace) %{_sysconfdir}/proxychains/proxychains15.conf
+%config(noreplace) %{_sysconfdir}/proxychains/proxychains16.conf
 %{_bindir}/proxychains4
 %{_bindir}/proxychains4-daemon
 %{_libdir}/libproxychains4.so*
